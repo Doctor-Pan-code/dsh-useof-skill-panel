@@ -1,0 +1,10 @@
+# dsh-useof-skill-panel bundle patch: mounts the plugin into the host profile.
+#
+# The entry id is `skill-report-use`, not `skill-report`: this fork is installed
+# ALONGSIDE the original dsh-echocat-skill-panel, and two loader entries sharing
+# an id would collide in the patch layer — the profile's own cordis.patch.yml
+# addresses entries BY id, so a single `- id: skill-report` override would be
+# applied to both copies.
+- insert:
+    - id: skill-report-use
+      name: 'dsh-useof-skill-panel'

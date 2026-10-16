@@ -1,0 +1,18 @@
+# Normalize to LF on checkout and in the working tree.
+#
+# Why this matters here rather than being cosmetic: the plugin's own gates PARSE
+# source text. `tools/check-template-literals.mjs` and `test/client-css.mjs` walk
+# template strings and CSS, and the build asserts an end marker survives at a
+# known position. Autocrlf would rewrite every tracked file on a fresh clone and
+# make a Windows checkout differ from CI.
+*
+text=auto eol=lf
+
+# Images are the one thing that must not be touched.
+*.png binary
+*.jpg binary
+*.ico binary
+
+# PowerShell scripts are the exception: Windows tooling copes better with CRLF,
+# and these are run by hand on Windows only.
+*.ps1 text eol=crlf

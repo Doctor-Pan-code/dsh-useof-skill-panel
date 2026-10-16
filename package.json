@@ -1,0 +1,89 @@
+{
+  "name": "dsh-useof-skill-panel",
+  "version": "5.1.4",
+  "description": "Per-turn skill audit for DeepSeek Harness, plus an in-app skill manager: a resident panel showing which skills each turn invoked, an install sheet that adds, replaces and removes skills without leaving the app, and per-skill provenance so an installed skill can be checked for and pulled up to its author's latest revision. Fork of dsh-echocat-skill-panel with the composer strip removed.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./install": "./src/install.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "test",
+    "docs",
+    "tools/build-client.mjs",
+    "tools/preview.mjs",
+    "tools/hover-test.mjs",
+    "tools/radius-audit.mjs",
+    "tools/check-width-live.mjs",
+    "tools/check-portal-host.mjs",
+    "tools/check-template-literals.mjs",
+    "tools/check-css-units.mjs",
+    "tools/check-identity.mjs",
+    "tools/width-harness.html",
+    "tools/portal-harness.html",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "安装说明.md",
+    "安装.ps1",
+    "安装-3.0.ps1",
+    "tools/verify-liquid-preview.mjs",
+    "tools/verify-background-preview.mjs",
+    "RELEASE_NOTES_5.1.4-fork.md",
+    "RELEASE_NOTES_5.1.3.md",
+    "README.en.md",
+    "screenshots.json",
+    ".gitignore"
+  ],
+  "scripts": {
+    "build": "node tools/build-client.mjs",
+    "test": "node tools/check-template-literals.mjs && node tools/check-css-units.mjs && node tools/check-identity.mjs && node test/units.mjs && node test/smoke.mjs && node test/install.mjs && node test/http.mjs && node test/install-route.mjs && node test/release.mjs && node test/scope.mjs && node test/client-bundle.mjs && node test/client-css.mjs && node test/ui-polish.mjs && node test/background-settings.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "cordis",
+    "skill",
+    "skill-install",
+    "audit",
+    "panel"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doctor-Pan-code/dsh-useof-skill-panel.git"
+  },
+  "homepage": "https://github.com/Doctor-Pan-code/dsh-useof-skill-panel",
+  "bugs": {
+    "url": "https://github.com/Doctor-Pan-code/dsh-useof-skill-panel/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

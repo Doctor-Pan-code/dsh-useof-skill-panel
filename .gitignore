@@ -1,0 +1,17 @@
+# Dependencies. The plugin has NO runtime dependencies — the two
+# `@deepseek-ai/*` peers are supplied by the DSH host. This entry is here only
+# for contributors who run the test suite locally.
+node_modules/
+
+# The build writes its own scratch output here.
+tools/preview.html
+tools/*-harness.html
+!tools/width-harness.html
+
+# Local screenshots from tools/preview.mjs / check-width-live.mjs
+tools/*.png
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.log
