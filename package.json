@@ -67,8 +67,8 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-llm": "*",
-    "@deepseek-ai/schemastery": "^3.18.1"
+    "@deepseek-ai/dsh-llm": ">=0.0.1-0 <0.3.0-0",
+    "@deepseek-ai/schemastery": ">=3.18.1-0 <4.0.0-0"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/dsh-llm": {
